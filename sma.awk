@@ -5,6 +5,14 @@
     return a < b ? a: b
   }  
 
+# helper function to generate a header for the output
+  function header(maxWin){
+    head = "Input"
+    for (i = 1; i <= maxWin; i++)
+       head = head OFS "TF_"i
+    return head
+  }
+
 # create an IncrementallyUpdatingAggregateFunction that calculates 
 # the MA on All timeframes to maxWin
 
@@ -77,7 +85,8 @@ BEGIN{
      col=1
   }
 
-
+  # output the header using our helper function
+  print header(maxWin)
 }
 
 ## Main Action Block ##
